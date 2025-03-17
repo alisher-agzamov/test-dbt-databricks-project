@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: test_schema
+    database: main_alisher
+    schema: test_schema
+    tables:
+      - name: users
+
+models:
+  - name: users_cleaned
+    description: "Cleaned users table"
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: email
+        tests:
+          - not_null
+          - unique
+
+  - name: user_statistics
+    description: "User statistics"
+    columns:
+      - name: total_users
+        tests:
+          - not_null
