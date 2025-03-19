@@ -2,10 +2,10 @@ version: 2
 
 sources:
   - name: test_schema
-    database: main_alisher
-    schema: test_schema
+    database: ALISHER_TEST_DB
+    schema: ALISHER_TEST_SCHEMA
     tables:
-      - name: users
+      - name: USERS
 
 models:
   - name: users_cleaned
