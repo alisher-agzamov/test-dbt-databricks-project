@@ -4,4 +4,4 @@ SELECT
     name,
     LOWER(email) AS email,
     birthdate
-FROM {{ source('test_schema', 'users') }}
+FROM {{ source('test_schema', 'USERS') }}
