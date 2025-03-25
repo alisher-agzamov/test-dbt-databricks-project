@@ -12,3 +12,8 @@ semantic_models:
       - name: total_users
         description: "Total number of users"
         agg: count
+        expr: id
+        timestamp: birthdate
+    dimensions:
+      - name: birthdate
+        type: time
