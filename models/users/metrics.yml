@@ -1,0 +1,19 @@
+version: 2
+
+metrics:
+  - name: total_users
+    label: "Total Users"
+    model: ref('users_cleaned')
+    description: "Общее количество пользователей"
+    type: count
+    timestamp: birthdate
+    time_grains: [day, month, year]
+
+  - name: avg_user_age
+    label: "Average User Age"
+    model: ref('users_cleaned')
+    description: "Средний возраст пользователя на основе birthdate"
+    type: expression
+    timestamp: birthdate
+    time_grains: [day, month, year]
+    expression: "AVG(DATEDIFF('year', birthdate, CURRENT_DATE))"
