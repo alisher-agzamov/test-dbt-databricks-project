@@ -1,17 +1,32 @@
-- name: time_spine
-  model: ref('time_spine')
-  description: "Time spine for use in the semantic layer"
-  primary_entity: date_day
-  dimensions:
-    - name: date_day
-      type: time
-      type_params:
-        time_granularity: day
-    - name: date_month
-      type: time
-      type_params:
-        time_granularity: month
-    - name: date_year
-      type: time
-      type_params:
-        time_granularity: year
+version: 2
+
+semantic_models:
+  - name: users_cleaned
+    model: ref('users_cleaned')
+    description: "Semantic model for the cleaned users table"
+    entities:
+      - name: user_id
+        type: primary
+        expr: id
+    measures:
+      - name: total_users
+        description: "Total number of users"
+        agg: count
+
+  - name: time_spine
+    model: ref('time_spine')
+    description: "Time spine for use in the semantic layer"
+    primary_entity: date_day
+    dimensions:
+      - name: date_day
+        type: time
+        type_params:
+          time_granularity: day
+      - name: date_month
+        type: time
+        type_params:
+          time_granularity: month
+      - name: date_year
+        type: time
+        type_params:
+          time_granularity: year
