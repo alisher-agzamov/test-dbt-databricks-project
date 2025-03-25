@@ -12,7 +12,3 @@ semantic_models:
       - name: total_users
         description: "Total number of users"
         agg: count
-      - name: avg_user_age
-        description: "Average age of users based on their birthdate"
-        agg: expression
-        expr: "AVG(DATEDIFF('year', birthdate, CURRENT_DATE))"
