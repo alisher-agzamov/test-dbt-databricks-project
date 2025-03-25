@@ -12,17 +12,3 @@ semantic_models:
       - name: total_users
         description: "Total number of users"
         agg: count
-    dimensions:
-      - name: birthdate
-        type: time
-
-  - name: time_spine
-    model: ref('time_spine')
-    description: "Time spine model for the semantic layer"
-    entities:
-      - name: date_day
-        type: primary
-        expr: date_day
-    dimensions:
-      - name: date_day
-        type: time
