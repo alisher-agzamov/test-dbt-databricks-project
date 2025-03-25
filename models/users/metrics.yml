@@ -23,6 +23,7 @@ semantic_models:
     dimensions:
       - name: date_day
         type: time
+        is_time_spine: true
       - name: date_month
         type: time
       - name: date_year
