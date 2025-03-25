@@ -8,7 +8,7 @@ semantic_models:
     entities:
       - name: user_id
         type: primary
-        expr: id  # указываем, что user_id — это поле id
+        expr: id
 
     measures:
       - name: users_count
@@ -18,8 +18,6 @@ semantic_models:
     dimensions:
       - name: birthdate
         type: time
-        type_params:
-          time_granularity: day
 
     defaults:
       agg_time_dimension: birthdate
@@ -28,8 +26,6 @@ semantic_models:
     model: ref('time_spine')
     description: "Time spine model required by MetricFlow"
 
-    entities:
+    dimensions:
       - name: date_day
         type: time
-        type_params:
-          time_granularity: day
