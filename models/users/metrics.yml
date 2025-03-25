@@ -15,8 +15,12 @@ semantic_models:
 
   - name: time_spine
     model: ref('time_spine')
-    description: "Time spine for use in the semantic layer"
-    primary_entity: date_day
+    description: "Time spine for the semantic layer"
+    entities:
+      - name: date_day
+        type: time
+        type_params:
+          time_granularity: day
     dimensions:
       - name: date_day
         type: time
