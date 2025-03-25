@@ -12,14 +12,28 @@ semantic_models:
       - name: total_users
         description: "Count of users"
         agg: count
-
-  - name: time_spine
-    model: ref('time_spine')
-    description: "Custom time spine"
-    entities:
-      - name: date_day
-        type: primary
-        expr: date_day
     dimensions:
-      - name: date_day
+      - name: birthdate
         type: time
+
+metrics:
+  - name: users
+    description: "Total number of users"
+    type: simple
+    label: Total users
+    type_params:
+      measure:
+        name: total_users
+        fill_nulls_with: 0
+        join_to_timespine: true
+        alias: user_count
+
+  - name: users_older_than_2000
+    description: "Users born after 2000"
+    type: simple
+    label: Users born after 2000
+    type_params:
+      measure:
+        name: total_users
+    filter: |
+      {{ Dimension('birthdate') }} > DATE('2000-01-01')
