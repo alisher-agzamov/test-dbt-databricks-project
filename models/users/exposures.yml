@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: user_dashboard
+    type: dashboard
+    label: "User Dashboard"
+    description: "Simple exposures for the dashboard"
+    depends_on:
+      - ref('user_statistics')
+    owner:
+      name: Alisher
+      email: alisher.agzamov@collibra.com
