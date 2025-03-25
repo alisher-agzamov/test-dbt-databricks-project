@@ -19,18 +19,14 @@ semantic_models:
     entities:
       - name: date_day
         type: time
-        type_params:
-          time_granularity: day
+        granularity: day
     dimensions:
       - name: date_day
         type: time
-        type_params:
-          time_granularity: day
+        granularity: day
       - name: date_month
         type: time
-        type_params:
-          time_granularity: month
+        granularity: month
       - name: date_year
         type: time
-        type_params:
-          time_granularity: year
+        granularity: year
