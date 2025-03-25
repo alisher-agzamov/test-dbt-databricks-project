@@ -3,7 +3,7 @@ version: 2
 semantic_models:
   - name: users_cleaned
     model: ref('users_cleaned')
-    description: "Semantic model for cleaned users"
+    description: "Семантическая модель для очищенных пользователей"
 
     entities:
       - name: user_id
@@ -12,20 +12,29 @@ semantic_models:
 
     measures:
       - name: users_count
-        description: "Количество всех пользователей"
+        description: "Общее количество пользователей"
         agg: count
 
     dimensions:
       - name: birthdate
         type: time
+        type_params:
+          time_granularity: day
 
     defaults:
       agg_time_dimension: birthdate
 
   - name: time_spine
     model: ref('time_spine')
-    description: "Time spine model required by MetricFlow"
+    description: "Модель временной шкалы, необходимая для MetricFlow"
+
+    entities:
+      - name: date_day
+        type: primary
+        expr: date_day
 
     dimensions:
       - name: date_day
         type: time
+        type_params:
+          time_granularity: day
