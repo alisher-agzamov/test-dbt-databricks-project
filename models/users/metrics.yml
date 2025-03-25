@@ -18,14 +18,11 @@ semantic_models:
     description: "Time spine for the semantic layer"
     entities:
       - name: date_day
-        type: time  # <- без granularity
+        type: time
     dimensions:
       - name: date_day
         type: time
-        granularity: day
       - name: date_month
         type: time
-        granularity: month
       - name: date_year
         type: time
-        granularity: year
