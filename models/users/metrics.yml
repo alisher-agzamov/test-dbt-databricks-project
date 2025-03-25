@@ -9,7 +9,7 @@ semantic_models:
         type: primary
         expr: id
     measures:
-      - name: total_users
+      - name: users          # 👈 соответствует метрике ниже
         description: "Count of users"
         agg: count
     dimensions:
@@ -18,22 +18,12 @@ semantic_models:
 
 metrics:
   - name: users
-    description: "Total number of users"
+    description: Count of users
     type: simple
-    label: Total users
+    label: Count of users
     type_params:
       measure:
-        name: total_users
+        name: users           # 👈 должно совпадать с названием выше
         fill_nulls_with: 0
-        join_to_timespine: true
+        join_to_timespine: false
         alias: user_count
-
-  - name: users_older_than_2000
-    description: "Users born after 2000"
-    type: simple
-    label: Users born after 2000
-    type_params:
-      measure:
-        name: total_users
-    filter: |
-      {{ Dimension('birthdate') }} > DATE('2000-01-01')
