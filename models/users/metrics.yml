@@ -1,19 +1,18 @@
 version: 2
 
-metrics:
-  - name: total_users
-    label: "Total Users"
+semantic_models:
+  - name: users_cleaned
     model: ref('users_cleaned')
-    description: "Общее количество пользователей"
-    type: count
-    timestamp: birthdate
-    time_grains: [day, month, year]
-
-  - name: avg_user_age
-    label: "Average User Age"
-    model: ref('users_cleaned')
-    description: "Средний возраст пользователя на основе birthdate"
-    type: expression
-    timestamp: birthdate
-    time_grains: [day, month, year]
-    expression: "AVG(DATEDIFF('year', birthdate, CURRENT_DATE))"
+    description: "Semantic model for the cleaned users table"
+    entities:
+      - name: user_id
+        type: primary
+        expr: id
+    measures:
+      - name: total_users
+        description: "Total number of users"
+        agg: count
+      - name: avg_user_age
+        description: "Average age of users based on their birthdate"
+        agg: expression
+        expr: "AVG(DATEDIFF('year', birthdate, CURRENT_DATE))"
