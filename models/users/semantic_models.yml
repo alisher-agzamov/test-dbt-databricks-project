@@ -3,22 +3,33 @@ version: 2
 semantic_models:
   - name: users_cleaned
     model: ref('users_cleaned')
-    description: "Semantic model for users"
+    description: "Semantic model for cleaned users"
 
     entities:
       - name: user_id
         type: primary
+        expr: id  # указываем, что user_id — это поле id
 
     measures:
       - name: users_count
         description: "Количество всех пользователей"
         agg: count
 
+    dimensions:
+      - name: birthdate
+        type: time
+        type_params:
+          time_granularity: day
+
     defaults:
       agg_time_dimension: birthdate
 
-    dimensions:
-      - name: birthdate
+  - name: time_spine
+    model: ref('time_spine')
+    description: "Time spine model required by MetricFlow"
+
+    entities:
+      - name: date_day
         type: time
         type_params:
           time_granularity: day
