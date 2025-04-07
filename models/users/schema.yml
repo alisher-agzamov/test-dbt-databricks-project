@@ -10,6 +10,8 @@ sources:
 models:
   - name: users_cleaned
     description: "Cleaned users table"
+    time_spine:
+      standard_granularity_column: birthdate
     columns:
       - name: id
         tests:
@@ -21,6 +23,7 @@ models:
           - not_null
           - unique
       - name: birthdate
+
 
   - name: user_statistics
     description: "User statistics"
