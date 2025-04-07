@@ -11,6 +11,10 @@ semantic_models:
     dimensions: 
       - name: email
         type: categorical
+      - name: birthdate
+        type: time
+        type_params:
+          time_granularity: year
 
     measures: 
       - name: total_users_cleaned
