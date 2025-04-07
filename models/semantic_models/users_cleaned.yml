@@ -2,6 +2,8 @@ semantic_models:
   - name: users_cleaned 
     model: ref('users_cleaned') 
     description: "users cleaned"
+    defaults:
+      agg_time_dimension: birthdate
 
     entities: 
       - name: user
