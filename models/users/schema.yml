@@ -15,10 +15,12 @@ models:
         tests:
           - unique
           - not_null
+      - name: name
       - name: email
         tests:
           - not_null
           - unique
+      - name: birthdate
 
   - name: user_statistics
     description: "User statistics"
@@ -26,3 +28,6 @@ models:
       - name: total_users
         tests:
           - not_null
+      - name: youngest_user
+      - name: oldest_user
+
