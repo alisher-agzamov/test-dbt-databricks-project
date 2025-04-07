@@ -1,0 +1,20 @@
+semantic_models:
+  - name: users_cleaned 
+    model: ref('users_cleaned') 
+    description: "users cleaned"
+
+    entities: 
+      - name: user
+        type: primary
+        expr: id
+
+    dimensions: 
+      - name: email
+        type: categorical
+
+    measures: 
+      - name: total_users_cleaned
+        description: "The number of users cleaned."
+        agg: count_distinct
+        expr: email
+        create_metric: True
