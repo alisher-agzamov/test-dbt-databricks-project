@@ -16,7 +16,7 @@ semantic_models:
       - name: birthdate
         type: time
         type_params:
-          time_granularity: year
+          time_granularity: day
 
     measures: 
       - name: total_users_cleaned
