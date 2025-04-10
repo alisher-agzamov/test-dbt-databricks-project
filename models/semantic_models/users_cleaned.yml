@@ -31,3 +31,15 @@ semantic_models:
         expr: email
         create_metric: true
 
+      - name: gmail_user_ratio
+        description: "Users with gmail.com"
+        agg: average
+        expr: CASE WHEN email LIKE '%@gmail.com' THEN 1 ELSE 0 END
+        create_metric: true
+
+      - name: gmail_user_age_flag
+        description: "gmail users with birthday after 2000"
+        agg: average
+        expr: CASE WHEN email LIKE '%@gmail.com' AND birthdate > '2000-01-01' THEN 1 ELSE 0 END
+        create_metric: true
+
