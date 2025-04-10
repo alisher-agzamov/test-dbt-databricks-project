@@ -23,11 +23,11 @@ semantic_models:
         description: "The number of users cleaned."
         agg: count_distinct
         expr: email
-        create_metric: True
+        create_metric: true
 
       - name: all_users
         description: "Total count of user rows."
         agg: count
         expr: email
-        create_metric: True
+        create_metric: true
 
