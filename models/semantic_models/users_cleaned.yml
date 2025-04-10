@@ -24,3 +24,10 @@ semantic_models:
         agg: count_distinct
         expr: email
         create_metric: True
+
+      - name: all_users
+        description: "Total count of user rows."
+        agg: count
+        expr: email
+        create_metric: True
+
